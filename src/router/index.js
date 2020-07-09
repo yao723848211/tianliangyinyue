@@ -59,16 +59,41 @@ const routes = [
             //     },
             // }
             {
-                path: "more/:type",
+                path: "more/:type/:title",
                 name: "moreList",
                 component: () => import( '../views/MoreMusic.vue'),
                 meta: {
                     title: "更多音乐"
                 },
-            }
-
+            },
         ]
     },
+    {
+        path: "/music-play/:songId",
+        name: "musicPlay",
+        component: () => import( '../views/MusicPlay/MusicPlay.vue'),
+        meta: {
+            title: "歌曲播放"
+        },
+    },
+    {
+        path: "/MoreBill/:type",
+        name: "MoreBillList",
+        component: () => import( '../components/MoreBill.vue'),
+        meta: {
+            title: "榜单详情"
+        },
+    },
+    {
+        path: "/moreSinger/:tinguid",
+        // name: "MoreSingerList",
+        component: () => import( '../components/MoreSinger.vue'),
+        meta: {
+            title: "歌手详情"
+        },
+    },
+
+
 
 
     // {

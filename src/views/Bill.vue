@@ -14,7 +14,7 @@
         },
         data(){
             return {
-                billTypeList:[1,2,11,24]
+                billTypeList:[1,2,11,24,25,21,16,12]
             }
         }
     }

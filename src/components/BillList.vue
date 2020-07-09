@@ -3,15 +3,15 @@
         <!--    今日榜单、新歌速递组件    -->
         <h3>{{title}}
 <!--            <router-link :to="'/index/more?='+type" tag="span">更多</router-link>-->
-            <router-link :to="{name:'moreList',params:{type:type}}" tag="span">更多</router-link>
+            <router-link :to="{name:'moreList',params:{type:type,title:title},}" tag="span">更多</router-link>
         </h3>
 
         <ul class="bill-list">
-            <li v-for="item in list" :key="item.song_id">
+            <router-link tag="li" :to="{name:'musicPlay',params: {songId:item.song_id}}" v-for="item in list" :key="item.song_id">
                 <img :src="item.pic_big"
                      alt="">
                 <div>{{item.title}}</div>
-            </li>
+            </router-link>
         </ul>
 
     </div>

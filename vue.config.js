@@ -14,6 +14,13 @@ module.exports={
                 target: "http://tingapi.ting.baidu.com",
                 changeOrigin: true
             },
+            "/taihe-api":{
+                target: "http://music.taihe.com",
+                changeOrigin: true,
+                pathRewrite:{
+                    "^/taihe-api":""
+                }
+            }
         },
     },
 }

@@ -1,18 +1,19 @@
 <template>
-    <div class="moreMusic">
+    <div>
         <!--            更多音乐-->
         <!--        <ul>-->
         <!--            <li v-for="item in list" :key="item.song_id">{{item.title}}</li>-->
         <!--        </ul>-->
-        <h3>今日榜单</h3>
+        <h3>{{title1}}</h3>
         <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
             <van-list
                     v-model="loading"
                     :finished="finished"
                     finished-text="没有更多了"
                     @load="onLoad"
+                    class="van-list"
             >
-                <div v-for="item in list" :key="item.song_id">
+                <div v-for="item in list" :key="item.song_id" class="box">
                     <!--                   图片-->
                     <div>
                         <img :src="item.pic_big" alt="">
@@ -37,7 +38,7 @@
         props: {
             title: {
                 type: String,
-                default: ""
+                // default: ""
             }
         },
         data() {
@@ -46,7 +47,8 @@
                 loading: false,
                 finished: false,
                 refreshing: false,
-                offset: 0
+                offset: 0,
+                title1:"",
             }
         },
         created() {
@@ -54,6 +56,7 @@
             // getBillList(this.$route.params.type).then(res => {
             //     this.list = res.song_list;
             // })
+            this.title1= this.$route.params.title
         },
         methods: {
             //处理加载更多的时候
@@ -84,7 +87,19 @@
 </script>
 
 <style scoped lang="less">
-    .moreMusic {
-
+    h3{
+        padding: 1px 15px;
+        box-sizing: border-box;
+    }
+    .van-list{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .box {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% / 2);
+        box-sizing: border-box;
+        padding: 5px 15px;
     }
 </style>

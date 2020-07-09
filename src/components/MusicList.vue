@@ -38,7 +38,7 @@
         },
         created() {
             getBillList(this.type,6).then(res => {
-                console.log(res)
+                // console.log(res)
                 this.list = res.song_list
             })
         }
@@ -57,7 +57,6 @@
                 width: 80px;
                 height: 80px;
             }
-
             .box2 {
                 margin-left: 10px;
                 display: flex;

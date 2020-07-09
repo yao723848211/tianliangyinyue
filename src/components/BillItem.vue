@@ -1,14 +1,20 @@
 <template>
-    <div class="bill-item">
-        <!--        图片-->
-        <div class="cover">
-            <img :src="billboard.pic_s192"
-                 alt="">
-        </div>
-        <!--        三首歌-->
-        <ul class="bill-list">
-            <li v-for="(item,index) in list" :key="item.song_id"><span>{{index +1 }}</span>{{item.title}}</li>
-        </ul>
+    <div>
+<!--        <router-link :to="{name:'MoreBillList',params:{type:type}}">-->
+        <router-link :to="'/MoreBill/' + type">
+
+        <div  class="bill-item">
+                <!--        图片-->
+                <div class="cover">
+                    <img :src="billboard.pic_s192"
+                         alt="">
+                </div>
+                <!--        三首歌-->
+                <ul class="bill-list">
+                    <li v-for="(item,index) in list" :key="item.song_id"><span>{{index +1 }}</span>{{item.title}}</li>
+                </ul>
+            </div>
+        </router-link>
 
     </div>
 </template>

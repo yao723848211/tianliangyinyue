@@ -28,8 +28,8 @@
 <script>
     export default {
         name: "IndexLayout",
-        methods:{
-            getBack(){
+        methods: {
+            getBack() {
                 this.$router.push("/")
             }
         },
@@ -37,8 +37,8 @@
             $route() {
                 if (this.$route.meta.title) {
                     document.title = this.$route.meta.title
-                }else  {
-                    document.title ="百度音乐"
+                } else {
+                    document.title = "百度音乐"
                 }
             }
 
@@ -48,20 +48,26 @@
 
 <style scoped lang="less">
     header {
+        display: flex;
+        background-color: #cccccc;
+
         ul {
             display: flex;
-            height: 40px;
-            line-height: 40px;
+            line-height: 30px;
             justify-content: space-around;
 
             li {
                 padding: 5px 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
 
                 img {
                     height: 40px;
                 }
             }
         }
+
         .router-link-active {
             color: lightseagreen;
         }
