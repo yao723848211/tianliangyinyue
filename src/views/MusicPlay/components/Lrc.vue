@@ -2,6 +2,7 @@
     <div class="lrc-container">
         <ul ref="list">
             <li v-for="(item,index) in lrcContent"   @click="setProcess(item.time)" :key="index" :class="index==active?'active':''">{{item.content}}</li>
+<!--            <li v-for="(item,index) in lrcContent"   :key="index" :class="index==active?'active':''">{{item.content}}</li>-->
         </ul>
     </div>
 </template>
@@ -77,16 +78,22 @@
             });
         },
         mounted() {
+            // 判断是否可以滑动
             this.$refs.list.addEventListener("touchstart", () => {
                 if (this.timeoutId) {
                     clearTimeout(this.timeoutId);
                 }
                 this.noScroll = true;
             });
+            // this.$refs.list.addEventListener("touchend", () => {
+            //     this.timeoutId = setTimeout(() => {
+            //         this.noScroll = false
+            //     }, 2000)
+            // });
         },
         watch: {
             currentTime() {
-                console.log(this.currentTime)
+                // console.log(this.currentTime)
                 // 根据这个时间判断激活的歌词是哪一个
                 for (let i = 0; i < this.lrcContent.length; i++) {
                     if (this.lrcContent[i].time > this.currentTime) {
@@ -103,10 +110,11 @@
                 }
             }
         },
+        //增加单击歌词变色事件
         methods: {
             setProcess(time) {
                 this.$store.commit("setProcess", {process: time})
-                console.log(111)
+                // console.log(time)
             }
         }
 
@@ -120,6 +128,7 @@
         margin-bottom: 30px;
 
         ul {
+            position: relative;
             height: 100%;
             overflow: scroll;
             text-align: center;

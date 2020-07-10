@@ -14,6 +14,9 @@ const store = new Vuex.Store({
         isLogin: false,
         list: [1, 5, 7, 8, 22, 6, 4, 3, 88, 99, 44, 55],
         billList:[],
+        currentTime: 0,
+        // 要设置的时间
+        process: null,
     },
     mutations: {
         setLogin(state, payload) {
